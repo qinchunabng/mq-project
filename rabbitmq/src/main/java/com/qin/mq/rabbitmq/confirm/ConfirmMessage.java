@@ -108,9 +108,8 @@ public class ConfirmMessage {
             if(multiple){
                 ConcurrentNavigableMap confirmed = confirmMap.headMap(deliveryTag);
                 confirmed.clear();
-            }else{
-                confirmMap.remove(deliveryTag);
             }
+            confirmMap.remove(deliveryTag);
 
             System.out.println("确认的消息编号：" + deliveryTag + ", 未确认消息size: " + confirmMap.size());
         }, (deliveryTag, multiple) -> { //确认失败的监听器
